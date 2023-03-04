@@ -19,7 +19,7 @@ export enum CustomErrorEnum {
     INVALID_PATH = "The path provided is invalid",
     INVALID_SYNTAX = "The request has invalid syntax",
     MONGO_BULK_WRITE_ERROR = "There was an error writing to the database",
-    USER_ACTIVE_GAME_NOT_FOUND = "User Active Game matching search criteria was not found",
+    USER_GAME_PREFERENCES_NOT_FOUND = "User Active Game matching search criteria was not found",
     DEFAULT_400_ERROR = "Invalid Request",
     DEFAULT_401_ERROR = "Invalid Permission",
     DEFAULT_404_ERROR = "Resource Not Found",

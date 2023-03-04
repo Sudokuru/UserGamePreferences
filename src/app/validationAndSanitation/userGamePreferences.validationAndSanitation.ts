@@ -15,7 +15,7 @@ import {body, query} from "express-validator";
  * //todo add more validation and sanitization
  * The astricks are required because we are accessing values from an array
  */
-exports.validateUserActiveGamesBodyPOST = [
+exports.validateUserGamePreferencesBodyPOST = [
     body().isArray().withMessage('body is not an array'),
     body('*.userID', 'userID did not match correct format').isString().isLength({ min: 1 }),
     body('*.puzzle', 'puzzle did not match whitelist').whitelist("0123456789"),
@@ -57,7 +57,7 @@ exports.validateUserActiveGamesBodyPOST = [
  * This validation only applies for the query fields
  * //todo add more validation and sanitization
  */
-exports.validateUserActiveGamesParameters = [
+exports.validateUserGamePreferencesParameters = [
     query('userID', 'userID did not match correct format').optional().isString().isLength({ min: 1 }),
     query('puzzle', 'puzzle did not match whitelist').optional().whitelist("0123456789"),
     query('puzzle', 'puzzle is not of correct length').optional().isLength({ min: 81, max: 81 }),
@@ -100,7 +100,7 @@ exports.validateUserActiveGamesParameters = [
  * the Astricks are not needed here because in this instance we are not storing our values in an array
  * We also leave out the userID and puzzle fields because we do not want to replace those during a PATCH operation
  */
-exports.validateUserActivePuzzlesBodyPATCH = [
+exports.validateUserGamePreferencesBodyPATCH = [
     body('currentTime', 'currentTime is not an integer').optional().isInt(),
     body('moves.*.puzzleCurrentState', 'puzzle current state did not match whitelist').optional().whitelist("0123456789"),
     body('moves.*.puzzleCurrentState', 'puzzle current state is not of correct length').optional().isLength({ min: 81, max: 81 }),
